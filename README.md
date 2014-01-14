@@ -1,6 +1,7 @@
-# Airbnb JavaScript Style Guide() {
+# Jolicloud JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
+* Forked from airbnb/javascript and slightly modified. Thanks Airbnb!
 
 
 ## <a name='TOC'>Table of Contents</a>
@@ -25,6 +26,7 @@
   1. [Constructors](#constructors)
   1. [Events](#events)
   1. [Modules](#modules)
+  1. [Underscore] (#underscore)
   1. [jQuery](#jquery)
   1. [ES5 Compatibility](#es5)
   1. [Testing](#testing)
@@ -1066,14 +1068,14 @@
     this._firstName = 'Panda';
     ```
 
-  - When saving a reference to `this` use `_this`.
+  - When saving a reference to `this` use `self`.
 
     ```javascript
     // bad
     function() {
-      var self = this;
+      var _this = this;
       return function() {
-        console.log(self);
+        console.log(_this);
       };
     }
 
@@ -1087,9 +1089,9 @@
 
     // good
     function() {
-      var _this = this;
+      var self = this;
       return function() {
-        console.log(_this);
+        console.log(self);
       };
     }
     ```
@@ -1310,6 +1312,27 @@
     ```
 
     **[[⬆]](#TOC)**
+
+
+## <a name='underscore'>Underscore</a>
+
+  - Use [Underscore](http://underscorejs.org/) as much as possible to improve code readability, for easy functional operations, and to take advantage of the helpers.
+
+    ```javascript
+    // bad
+    var elements = [1, 2, 3];
+    for (var i = 0; i < elements.length; i++) {
+      console.log(elements[i]);
+    }
+
+    // good
+    var elements = [1, 2, 3];
+    _.each(elements, function(el) {
+      console.log(el);
+    });
+
+    _.extend({name: 'moe'}, {age: 50});
+    ```
 
 
 ## <a name='jquery'>jQuery</a>
