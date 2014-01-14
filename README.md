@@ -1,6 +1,7 @@
 # Jolicloud JavaScript Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
+
 *Forked from airbnb/javascript and slightly modified. Thanks Airbnb!*
 
 
